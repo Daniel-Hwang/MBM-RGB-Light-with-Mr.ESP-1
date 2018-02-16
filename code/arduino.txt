@@ -1,0 +1,87 @@
+#include <MHBrain.h>
+
+#include <Wire.h>
+
+#include <MHRGB.h>
+
+
+
+
+MHBrain b;
+
+MHRGB RGB = MHRGB(1,A0,NEO_GRB + NEO_KHZ800);
+
+int _E6_B3_A8_E6_84_8F_E5_8A_9B;
+
+
+
+void setup()
+{
+  
+  b.attach();
+
+  RGB.beginRGB();
+}
+
+
+
+
+void loop(){
+
+  _E6_B3_A8_E6_84_8F_E5_8A_9B = b.getAttentionValue();
+
+  if (_E6_B3_A8_E6_84_8F_E5_8A_9B != -1) {
+
+    Serial.println(_E6_B3_A8_E6_84_8F_E5_8A_9B);
+
+    if (_E6_B3_A8_E6_84_8F_E5_8A_9B >= 90) {
+
+      RGB.setPixelColor(0,255,0,0);
+
+      delay(200);
+
+      RGB.setPixelColor(0,0,255,0);
+
+      delay(200);
+
+      RGB.setPixelColor(0,0,0,255);
+
+      delay(200);
+
+    } else if (_E6_B3_A8_E6_84_8F_E5_8A_9B >= 70) {
+
+      RGB.setPixelColor(0,150,0,0);
+
+      delay(200);
+
+      RGB.setPixelColor(0,0,150,0);
+
+      delay(200);
+
+      RGB.setPixelColor(0,0,0,150);
+
+      delay(200);
+
+    } else if (_E6_B3_A8_E6_84_8F_E5_8A_9B >= 50) {
+
+      RGB.setPixelColor(0,90,0,0);
+
+      delay(200);
+
+      RGB.setPixelColor(0,0,90,0);
+
+      delay(200);
+
+      RGB.setPixelColor(0,0,0,90);
+
+      delay(200);
+
+    } else {
+
+      RGB.setPixelColor(0,0,0,0);
+    }
+
+
+  }
+ b.run();
+}

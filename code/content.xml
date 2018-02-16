@@ -1,0 +1,443 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_def_num" id="4" x="3" y="-126">
+    <field name="VAR">注意力</field>
+  </block>
+  <block type="arduino_setup" id="1" x="5" y="-88">
+    <statement name="DO">
+      <block type="kit_setup_brainwave" id="5">
+        <next>
+          <block type="kit_setup_RGB" id="6" inline="true">
+            <field name="RGB">RGB</field>
+            <field name="PIN">A0</field>
+            <value name="NUMBER">
+              <block type="math_number" id="7">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="arduino_loop" id="3" x="3" y="7">
+    <statement name="DO">
+      <block type="variables_set" id="8" inline="true">
+        <field name="VAR">注意力</field>
+        <value name="VALUE">
+          <block type="kit_get_brainwave" id="10">
+            <field name="DATA_TYPE">FOCUS</field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if" id="11" inline="false">
+            <value name="IF0">
+              <block type="logic_compare" id="19" inline="true">
+                <field name="OP">NEQ</field>
+                <value name="A">
+                  <block type="variables_get" id="20">
+                    <field name="VAR">注意力</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="21">
+                    <field name="NUM">-1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="logic_chuankou" id="127" inline="false">
+                <value name="CHUANKOU">
+                  <block type="variables_get" id="128">
+                    <field name="VAR">注意力</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_if" id="28" inline="false">
+                    <mutation elseif="2" else="1"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare" id="35" inline="true">
+                        <field name="OP">GTE</field>
+                        <value name="A">
+                          <block type="variables_get" id="36">
+                            <field name="VAR">注意力</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="37">
+                            <field name="NUM">90</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="kit_RGB" id="44" inline="true">
+                        <field name="RGB">RGB</field>
+                        <value name="ORDER">
+                          <block type="math_number" id="45">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="R">
+                          <block type="math_number" id="46">
+                            <field name="NUM">255</field>
+                          </block>
+                        </value>
+                        <value name="G">
+                          <block type="math_number" id="47">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="48">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="delay" id="49" inline="true">
+                            <value name="TIME">
+                              <block type="math_number" id="50">
+                                <field name="NUM">200</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="kit_RGB" id="51" inline="true">
+                                <field name="RGB">RGB</field>
+                                <value name="ORDER">
+                                  <block type="math_number" id="52">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <value name="R">
+                                  <block type="math_number" id="53">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <value name="G">
+                                  <block type="math_number" id="54">
+                                    <field name="NUM">255</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="55">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="delay" id="56" inline="true">
+                                    <value name="TIME">
+                                      <block type="math_number" id="57">
+                                        <field name="NUM">200</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="kit_RGB" id="58" inline="true">
+                                        <field name="RGB">RGB</field>
+                                        <value name="ORDER">
+                                          <block type="math_number" id="59">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                        <value name="R">
+                                          <block type="math_number" id="60">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                        <value name="G">
+                                          <block type="math_number" id="61">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="62">
+                                            <field name="NUM">255</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="delay" id="73" inline="true">
+                                            <value name="TIME">
+                                              <block type="math_number" id="74">
+                                                <field name="NUM">200</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <value name="IF1">
+                      <block type="logic_compare" id="38" inline="true">
+                        <field name="OP">GTE</field>
+                        <value name="A">
+                          <block type="variables_get" id="39">
+                            <field name="VAR">注意力</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="40">
+                            <field name="NUM">70</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO1">
+                      <block type="kit_RGB" id="63" inline="true">
+                        <field name="RGB">RGB</field>
+                        <value name="ORDER">
+                          <block type="math_number" id="64">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="R">
+                          <block type="math_number" id="65">
+                            <field name="NUM">150</field>
+                          </block>
+                        </value>
+                        <value name="G">
+                          <block type="math_number" id="66">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="67">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="delay" id="75" inline="true">
+                            <value name="TIME">
+                              <block type="math_number" id="76">
+                                <field name="NUM">200</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="kit_RGB" id="68" inline="true">
+                                <field name="RGB">RGB</field>
+                                <value name="ORDER">
+                                  <block type="math_number" id="69">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <value name="R">
+                                  <block type="math_number" id="70">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <value name="G">
+                                  <block type="math_number" id="71">
+                                    <field name="NUM">150</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="72">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="delay" id="77" inline="true">
+                                    <value name="TIME">
+                                      <block type="math_number" id="78">
+                                        <field name="NUM">200</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="kit_RGB" id="81" inline="true">
+                                        <field name="RGB">RGB</field>
+                                        <value name="ORDER">
+                                          <block type="math_number" id="82">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                        <value name="R">
+                                          <block type="math_number" id="83">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                        <value name="G">
+                                          <block type="math_number" id="84">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="85">
+                                            <field name="NUM">150</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="delay" id="79" inline="true">
+                                            <value name="TIME">
+                                              <block type="math_number" id="80">
+                                                <field name="NUM">200</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <value name="IF2">
+                      <block type="logic_compare" id="41" inline="true">
+                        <field name="OP">GTE</field>
+                        <value name="A">
+                          <block type="variables_get" id="42">
+                            <field name="VAR">注意力</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="43">
+                            <field name="NUM">50</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO2">
+                      <block type="kit_RGB" id="101" inline="true">
+                        <field name="RGB">RGB</field>
+                        <value name="ORDER">
+                          <block type="math_number" id="102">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="R">
+                          <block type="math_number" id="103">
+                            <field name="NUM">90</field>
+                          </block>
+                        </value>
+                        <value name="G">
+                          <block type="math_number" id="104">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="105">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="delay" id="106" inline="true">
+                            <value name="TIME">
+                              <block type="math_number" id="107">
+                                <field name="NUM">200</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="kit_RGB" id="108" inline="true">
+                                <field name="RGB">RGB</field>
+                                <value name="ORDER">
+                                  <block type="math_number" id="109">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <value name="R">
+                                  <block type="math_number" id="110">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <value name="G">
+                                  <block type="math_number" id="111">
+                                    <field name="NUM">90</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="112">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="delay" id="113" inline="true">
+                                    <value name="TIME">
+                                      <block type="math_number" id="114">
+                                        <field name="NUM">200</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="kit_RGB" id="115" inline="true">
+                                        <field name="RGB">RGB</field>
+                                        <value name="ORDER">
+                                          <block type="math_number" id="116">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                        <value name="R">
+                                          <block type="math_number" id="117">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                        <value name="G">
+                                          <block type="math_number" id="118">
+                                            <field name="NUM">0</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="119">
+                                            <field name="NUM">90</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="delay" id="120" inline="true">
+                                            <value name="TIME">
+                                              <block type="math_number" id="121">
+                                                <field name="NUM">200</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="kit_RGB" id="122" inline="true">
+                        <field name="RGB">RGB</field>
+                        <value name="ORDER">
+                          <block type="math_number" id="123">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="R">
+                          <block type="math_number" id="124">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="G">
+                          <block type="math_number" id="125">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="126">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
